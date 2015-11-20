@@ -565,7 +565,7 @@ void Scene::DrawScene()
     CHECKERROR;
 
 	loc = glGetUniformLocation(program, "ShadowMatrix");
-	glUniformMatrix4fv(loc, 1, GL_TRUE, &ShadowMatrix[0][0]);
+	glUniformMatrix4fv(loc, 1, GL_FALSE, &ShadowMatrix[0][0]);
 
 
 

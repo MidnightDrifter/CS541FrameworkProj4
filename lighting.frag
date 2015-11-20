@@ -118,7 +118,7 @@ vec2 shadowTexCoord = shadowCoord.xy/shadowCoord.w;
 
 
 
-		else if(shadowCoord.z>0 && (shadowTexCoord.x >= 0 && shadowTexCoord.x <=1) &&(shadowTexCoord.y >=0 && shadowTexCoord.y <=0))
+		else if(shadowCoord.w>0 && (shadowTexCoord.x >= 0 && shadowTexCoord.x <=1) &&(shadowTexCoord.y >=0 && shadowTexCoord.y <=0))
 			//else if((shadowTexCoord.x >= 0 && shadowTexCoord.x <=1) &&(shadowTexCoord.y >=0 && shadowTexCoord.y <=0))
 				{
 		
@@ -129,7 +129,7 @@ vec2 shadowTexCoord = shadowCoord.xy/shadowCoord.w;
 							
 							//if(shadowCoord.w > texture(shadowMap, shadowTexCoord.xy).w)
 							//if((shadowCoord.z - texture(shadowMap, shadowTexCoord).z) >= shadowOffset )
-							if(shadowCoord.w  > texture(shadowMap, shadowTexCoord.xy).w)
+							if(shadowCoord.w - shadowOffset  > texture(shadowMap, shadowTexCoord.xy).w)
 							{
 								gl_FragColor.xyz = lightAmbient;	
 							}
@@ -165,8 +165,8 @@ vec2 shadowTexCoord = shadowCoord.xy/shadowCoord.w;
 	}
 	*/
 
-	if(shadowCoord.w >0)
-	{gl_FragColor.xyz=vec3(1.0, 0.5, 0.0);}
+	//if(shadowCoord.w >0)
+	//{gl_FragColor.xyz=vec3(1.0, 0.5, 0.0);}
 
 	 // gl_FragColor.xy = shadowCoord.xy/(shadowCoord.z);
 	 
@@ -174,7 +174,7 @@ vec2 shadowTexCoord = shadowCoord.xy/shadowCoord.w;
 	   
 
 
-	   //gl_FragColor.xyz = vec3(shadowCoord.w, shadowCoord.w, shadowCoord.w);
+	  // gl_FragColor.xyz = vec3(shadowCoord.w, shadowCoord.w, shadowCoord.w);
 	 // gl_FragColor = shadowCoord;
 	// gl_FragColor.xyz = vec3(texture(shadowMap, shadowTexCoord).w,texture(shadowMap, shadowTexCoord).w,texture(shadowMap, shadowTexCoord).w);
 
