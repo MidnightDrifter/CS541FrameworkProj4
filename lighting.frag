@@ -150,7 +150,7 @@ vec2 shadowTexCoord = shadowCoord.xy/shadowCoord.w;
 		else
 		 { 
 		 //gl_FragColor.xyz = vec3(shadowCoord.w, shadowCoord.w , shadowCoord.w );
-			gl_FragColor.xyz =output;
+		 gl_FragColor.xyz =output;
 			
 		 }
 	  
@@ -168,15 +168,15 @@ vec2 shadowTexCoord = shadowCoord.xy/shadowCoord.w;
 	//if(shadowCoord.w >0)
 	//{gl_FragColor.xyz=vec3(1.0, 0.5, 0.0);}
 
-	 // gl_FragColor.xy = shadowCoord.xy/(shadowCoord.z);
+	// gl_FragColor.xy = shadowCoord.xy/(shadowCoord.z);
 	 
 
 	   
 
 
-	  // gl_FragColor.xyz = vec3(shadowCoord.w, shadowCoord.w, shadowCoord.w);
+	 // gl_FragColor.xyz = vec3(shadowCoord.w, shadowCoord.w, shadowCoord.w);
 	 // gl_FragColor = shadowCoord;
-	// gl_FragColor.xyz = vec3(texture(shadowMap, shadowTexCoord).w,texture(shadowMap, shadowTexCoord).w,texture(shadowMap, shadowTexCoord).w);
+	 // gl_FragColor.xyz = vec3(texture(shadowMap, shadowTexCoord).w,texture(shadowMap, shadowTexCoord).w,texture(shadowMap, shadowTexCoord).w);
 
 
 
