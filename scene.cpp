@@ -584,7 +584,7 @@ void Scene::DrawScene()
 	loc = glGetUniformLocation(program, "shadowOffset");
 	glUniform1f(loc, shadowOffset);
 
-	glActiveTexture(GL_TEXTURE0 +7);  //Texture unit 7 is shadowMap
+	glActiveTexture(GL_TEXTURE7);  //Texture unit 7 is shadowMap
 	glBindTexture(GL_TEXTURE_2D, shadowMap.texture);
 	loc = glGetUniformLocation(program, "shadowMap");
 	glUniform1i(loc, 7);
@@ -606,6 +606,8 @@ void Scene::DrawScene()
     glUniform3fv(loc, 1, &lPos[0]);
     loc = glGetUniformLocation(program, "lightValue");
     glUniform3fv(loc, 1, &lightColor[0]);
+
+	
 
     // Send mode to the shader (used to choose alternate shading
     // strategies in the shader)

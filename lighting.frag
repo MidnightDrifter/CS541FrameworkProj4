@@ -77,6 +77,16 @@ vec3 BRDF( vec3 dif, vec3 spec, float shiny)
 return BRDF(eyeVec, normalVec, lightVec, dif, spec, shiny);
 }
 
+highp float rand(vec2 co)
+{
+    highp float a = 12.9898;
+    highp float b = 78.233;
+    highp float c = 43758.5453;
+    highp float dt= dot(co.xy ,vec2(a,b));
+    highp float sn= mod(dt,3.14);
+    return fract(sin(sn) * c);
+}
+
 void main()
 {
 
@@ -179,5 +189,12 @@ vec2 shadowTexCoord = shadowCoord.xy/shadowCoord.w;
 	 // gl_FragColor.xyz = vec3(texture(shadowMap, shadowTexCoord).w,texture(shadowMap, shadowTexCoord).w,texture(shadowMap, shadowTexCoord).w);
 
 
+
+	// gl_FragColor = texture(shadowMap, (gl_FragCoord.xy / 2048.0f))/100.0f;
+	vec2 uv = gl_FragCoord.xy / vec2(2048.0f, 2048.0f);
+	gl_FragColor.xyz = texture(shadowMap, uv).xyz / 100.0f;
+	float r = rand(gl_FragCoord.xy);
+	vec2 random = (vec2(r, r) + vec2(1.0f,1.0f))/2.0f;
+	gl_FragColor.xyz = texture(shadowMap, vec2(0.5f,0.5f)).xyz / 100.0f;
 
 }

@@ -82,5 +82,7 @@ return BRDF(eyeVec, normalVec, lightVec, dif, spec, shiny);
 void main()
 {
 
-gl_FragColor = position;	   
+//gl_FragColor = position;	   
+gl_FragData[0] = position;
+
 }
